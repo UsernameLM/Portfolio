@@ -1,0 +1,31 @@
+{%extends "base.html"%} {%block title%}Projeto 1{%endblock%}
+{%block content%}
+<div class="d-flex justify-content-center align-items-center">
+   <h1 class="text-center">Grafico</h1>
+</div>
+<div class="container">
+     <div class="row">
+         <div class="col">
+        <img src="data:image/png;base64,{{ image_base64 }}" alt="Graph">
+         </div>
+         <div class="col">
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Variação</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for date_item, variation_item in data_combined %}
+                <tr>
+                    <td>{{ date_item }}</td>
+                    <td>{{ variation_item }}%</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+{%endblock%}
